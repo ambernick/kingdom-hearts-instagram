@@ -1,13 +1,13 @@
 const User = require("../models/user");
-const Game = require("../models/game")
+const Post = require("../models/post")
 
 module.exports = {
   index,
   showProfile,
   update,
   show,
-  addFriend,
-  removeFriend
+  follow,
+  unFollow
 };
 
 function index(req, res) {
