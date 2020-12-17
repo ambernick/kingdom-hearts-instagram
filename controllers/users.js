@@ -1,13 +1,13 @@
 const User = require("../models/user");
-const Post = require("../models/post")
+// const Post = require("../models/post")
 
 module.exports = {
   index,
   showProfile,
   update,
-  show,
-  follow,
-  unFollow
+  // show,
+  // follow,
+  // unFollow
 };
 
 function index(req, res) {
@@ -21,5 +21,12 @@ function showProfile(req, res) {
   .populate("friends")
   .then((user) => {
     res.render("users/profile", {title: "Profile Page", user})
+  })
+}
+
+function update(req, res) {
+  User.findByIdAndUpdate(req.user._id, req.body, {new: true})
+  .then(() => {
+    res.redirect("/users/profile")
   })
 }
