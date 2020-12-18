@@ -1,21 +1,14 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const router = require('express').Router()
+const postsCtrl = require('../controllers/posts')
 
-const postSchema = new Schema(
-    {
-        name: String,
-        email: String,
-        avatar: String,
-        googleId: String,
-        Likes: Number,
-        Caption: String,
-        Comments: String,
-        
-      },
-      {
-        timestamps: true,
-      }
-    );
-    
-    module.exports = mongoose.model("Post", postSchema);
-)
+router.get('/', isLoggedIn, postsCtrl.index)
+router.post('/', isLoggedIn, postsCtrl.create)
+router.get('/:id', isLoggedIn, postsCtrl.show)
+router.post('/:id', isLoggedIn, postsCtrl.reply)
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/auth/google");
+}
+
+module.exports = router;
