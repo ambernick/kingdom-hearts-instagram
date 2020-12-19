@@ -2,7 +2,7 @@
 
 <%= users[0].name  %>'s <h3>Profile</h3>
 <% users.forEach(u => { %>
-  <a href="/users/<%= u._id %>">
+  <a href="/profile/<%= u._id %>">
     <div class="card">
       <div class="card-body">
         <img height="50" id="avatarPhoto" src="<%= u.avatar ? u.avatar : 'http://theoldreader.com/kittens/300/300/' %>" alt=""> 
