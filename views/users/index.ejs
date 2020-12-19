@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h3>User List Page</h3>
+<%= users[0].name  %>'s <h3>Profile</h3>
 <% users.forEach(u => { %>
   <a href="/users/<%= u._id %>">
     <div class="card">
