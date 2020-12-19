@@ -1,5 +1,4 @@
 const Post = require("../models/post");
-const Post = require("../models/Post");
 
 module.exports = {
     index,
@@ -11,7 +10,7 @@ module.exports = {
   function index(req, res) {
     Post.find({})
     .then((Posts) => {
-      res.render("Posts/index", {
+      res.render("posts/index", {
         user: req.user,
         title: "Message Board",
         posts: posts.reverse()
