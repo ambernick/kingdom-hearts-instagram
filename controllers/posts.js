@@ -3,7 +3,8 @@ const Post = require("../models/post");
 module.exports = {
     index,
     create,
-    showFeed
+    showFeed,
+    newPost
   }
   
   function index(req, res) {
@@ -30,10 +31,15 @@ module.exports = {
     Post.findById(req.params.id)
     .then((Post) => {
       res.render('posts/show', {
-        title: "Message Details",
-        user: req.user,
-        post
+        name: "Message Details",
+        
       })
     })
   }
   
+  function newPost(req, res) {
+    res.render("posts/gen", {
+      name: "Create Post",
+      // results: null
+    })
+  }

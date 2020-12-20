@@ -1,9 +1,11 @@
 const router = require('express').Router()
 const postsCtrl = require('../controllers/posts')
 
+router.get('/gen', isLoggedIn, postsCtrl.newPost)
 router.get('/', isLoggedIn, postsCtrl.index)
 router.post('/', isLoggedIn, postsCtrl.create)
 router.get('/:id', isLoggedIn, postsCtrl.showFeed)
+
 // router.post('/:id', isLoggedIn, postsCtrl.reply)
 
 // router.get("/new", isLoggedIn, postsCtrl.new);

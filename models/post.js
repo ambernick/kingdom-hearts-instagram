@@ -10,7 +10,8 @@ const postSchema = new Schema(
         Likes: Number,
         Caption: String,
         Comments: String,
-        Posts: [{type: Schema.Types.ObjectId, ref: "posts"}]
+        // Posts: [{type: Schema.Types.ObjectId, ref: "posts"}]
+        Posts: String,
       },
       {
         timestamps: true,
