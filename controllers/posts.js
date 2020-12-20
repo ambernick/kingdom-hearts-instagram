@@ -3,8 +3,7 @@ const Post = require("../models/post");
 module.exports = {
     index,
     create,
-    show,
-    reply
+    showFeed
   }
   
   function index(req, res) {
@@ -13,7 +12,7 @@ module.exports = {
       res.render("posts/index", {
         user: req.user,
         title: "Message Board",
-        posts: posts.reverse()
+        posts: Posts.reverse()
       })
     })
   }
@@ -27,7 +26,7 @@ module.exports = {
     })
   }
   
-  function show(req, res) {
+  function showFeed(req, res) {
     Post.findById(req.params.id)
     .then((Post) => {
       res.render('posts/show', {
@@ -38,15 +37,3 @@ module.exports = {
     })
   }
   
-  function reply(req, res) {
-    Post.findById(req.params.id)
-    .then((post) => {
-      req.body.postedBy = req.user.name
-      req.body.avatar = req.user.avatar
-      post.replies.push(req.body)
-      post.save()
-      .then(() => {
-        res.redirect(`/posts/${post._id}`)
-      })
-    })
-  }
