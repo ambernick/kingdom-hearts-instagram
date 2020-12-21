@@ -53,15 +53,10 @@ module.exports = {
   
   // update and display likes on a post
   function update(req, res) {
-    // console.log(req.body.Likes)
-    // var amount = req.body.Likes + 1
-    // req.body.likedBy = req.body.likedBy  + " , " + req.user.name 
-// console.log(req.body.Likes)
-    Post.updateOne({'_id':req.body._id}, {$inc:{Likes: 1}})
+    const postID = req.params.id.toString().trim()
+    Post.findByIdAndUpdate({'_id':postID}, {$inc:{Likes: 1}})
     
-    // Post.update({ _id: req.params.id }, 
-    //   { $set: req.body, $inc: { Likes: 1 } }, 
-    //   { multi: false })
+  
     .then(() => {
       res.redirect("/posts")
     })

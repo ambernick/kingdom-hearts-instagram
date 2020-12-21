@@ -15,7 +15,7 @@
         
         <%= post.Caption %> 
         
-      <form action="/posts?_method=PUT" method="POST">
+      <form action="posts/<%= post._id  %> ?_method=PUT" method="POST">
         <button type="submit" class="btn btn-success">Like</button>
       </form>
       <form action="posts/<%= post._id %> ?_method=DELETE" method="POST">
