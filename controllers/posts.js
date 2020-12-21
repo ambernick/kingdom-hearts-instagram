@@ -4,10 +4,11 @@ const Post = require("../models/post");
 module.exports = {
     index,
     create,
-    showFeed,
+    show: showFeed,
     update,
     newPost,
-    showLikes
+    showLikes,
+    delete : deletePost
   }
 
   //keeps an index of the posts and shows the most recent post first
@@ -28,8 +29,14 @@ module.exports = {
     req.body.avatar = req.user.avatar
     req.body.Likes = 0
     console.log(req.body.Posts)
+    console.log(req.user._id)
+    
+    // console.log(post._id)
+    console.log(req.body.id)
     Post.create(req.body)
     .then(() => {
+      console.log(req.params.id)
+    console.log(req.body._id)
       res.redirect('/posts')
     })
   }
@@ -46,11 +53,11 @@ module.exports = {
   
   // update and display likes on a post
   function update(req, res) {
-    console.log(req.body.Likes)
-    var amount = req.body.Likes + 1
+    // console.log(req.body.Likes)
+    // var amount = req.body.Likes + 1
     // req.body.likedBy = req.body.likedBy  + " , " + req.user.name 
-console.log(req.body.Likes)
-    Post.findByIdAndUpdate(req.params.id, {$inc:{Likes: 1}})
+// console.log(req.body.Likes)
+    Post.updateOne({'_id':req.body._id}, {$inc:{Likes: 1}})
     
     // Post.update({ _id: req.params.id }, 
     //   { $set: req.body, $inc: { Likes: 1 } }, 
@@ -61,7 +68,7 @@ console.log(req.body.Likes)
   }
 
   function showLikes(req, res) {
-    Post.findById(req.params.id)
+    Post.findById(req.body._id)
     // .populate("friends")
     .then((likedBy) => {
       res.render("/posts", {Likes: 1, likedBy})
@@ -73,4 +80,13 @@ console.log(req.body.Likes)
       name: "Create Post",
       // results: null
     })
+  }
+
+  function deletePost(req,res) {
+    console.log(req.params.id)
+    const postID = req.params.id.toString().trim()
+    Post.findByIdAndDelete(postID, (err, Post) => {
+      res.redirect("/posts");
+  })
+  
   }

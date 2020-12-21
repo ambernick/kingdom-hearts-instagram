@@ -6,7 +6,8 @@ router.get('/', isLoggedIn, postsCtrl.index)
 router.put('/', isLoggedIn, postsCtrl.update)
 router.get('/', isLoggedIn, postsCtrl.showLikes)
 router.post('/', isLoggedIn, postsCtrl.create)
-router.get('/:id', isLoggedIn, postsCtrl.showFeed)
+router.get('/:id', isLoggedIn, postsCtrl.show)
+router.delete('/:id', isLoggedIn, postsCtrl.delete)
 
 
 // router.post('/:id', isLoggedIn, postsCtrl.reply)
