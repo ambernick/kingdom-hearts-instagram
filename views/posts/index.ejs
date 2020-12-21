@@ -2,22 +2,19 @@
 
 <h1>Display Feed</h1>
 
-<form action="/posts" method="POST">
-    <div class="form-group">
-      <input type="text" class="form-control" aria-describedby="post" name="title" placeholder="Enter post...">
-    </div>
-    <button type="submit" class="btn btn-success">Create Post</button>
-  </form>
-  
   <% posts.forEach(post => { %>
     <div class="card">
       <div class="card-header">
         <%= post.postedBy %> <img id="avatarPhoto" width="30" src="<%= post.avatar %>" alt="">
       </div>
       <div class="card-body">
-        <h5 class="card-title"><%= post.title %></h5>
+        <h5 class="card-title"><%= post.name %></h5>
         <h6><%= post.createdAt.toLocaleString()%></h6>
-        <a href="/posts/<%= post._id %>" class="btn btn-primary">See Post</a>
+        <img src= "<%= post.Posts %>" />
+        <%= post.Likes %> Likes 
+        
+        
+        <%= post.Caption %> 
       </div>
     </div>
   <% }) %>

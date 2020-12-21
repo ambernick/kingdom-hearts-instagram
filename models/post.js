@@ -10,7 +10,8 @@ const postSchema = new Schema(
         Likes: Number,
         Caption: String,
         Comments: String,
-        // Posts: [{type: Schema.Types.ObjectId, ref: "posts"}]
+        Character: String,
+        likedBy: [{type: Schema.Types.ObjectId, ref: "User"}],
         Posts: String,
       },
       {
@@ -19,3 +20,5 @@ const postSchema = new Schema(
     );
     
     module.exports = mongoose.model("Post", postSchema);
+
+  

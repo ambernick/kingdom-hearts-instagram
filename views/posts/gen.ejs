@@ -27,10 +27,13 @@
 		<div class="container">
 			<canvas id="canvas" style="border:1px solid #000000"/>
 		</div>
+
+		<form action="/posts" method="POST">
+
 		<div style="display: block; margin: auto; margin-bottom: 10px; text-align: center;">
 			<div>
 				<p>Select person</p>
-				<select onchange='onPersonChange(this.value)'>
+				<select onchange='onPersonChange(this.value)' name = 'Character'>
 					<option value='unknown'>Unknown</option>
 					<option value='sora'>Sora</option>
 					<option value='donald'>Donald</option>
@@ -41,15 +44,16 @@
 				</select>
 			</div>
 			<div>
-				<p>Enter body text</p>
-				<textarea onkeyup="onTextChange(this.value)" onblur="onTextChange(this.value)" rows="4" cols="50">Sample text</textarea>
+				<p>Enter caption</p>
+				<textarea onkeyup="onTextChange(this.value)" onblur="onTextChange(this.value)" rows="4" cols="50" name = 'Caption'>Enter caption</textarea>
 			</div>
 			<div>
 				<p>Upload post image</p>
-				<input id="postimg" type="file" accept="image/png, image/jpeg" onchange="readURL(this)"/>
+				<input type="input" name = 'Posts'/>
 			</div>
 			<div style="margin-top: 20px">
-				<button onclick="onSave()">Preview Post</button>
+				<button type="submit" class="btn btn-success">Create Post</button>
 			</div>
 		</div>
-		
+	
+	</form>
