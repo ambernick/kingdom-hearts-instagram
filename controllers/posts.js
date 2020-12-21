@@ -1,5 +1,6 @@
 const Post = require("../models/post");
 
+
 module.exports = {
     index,
     create,
@@ -45,20 +46,25 @@ module.exports = {
   
   // update and display likes on a post
   function update(req, res) {
-    req.body.Likes = req.body.Likes + 1,
-    req.body.likedBy = req.body.likedBy  + " , " + req.user.name 
-
-    Post.findByIdAndUpdate(req.name._id, req.body, {new: true})
+    console.log(req.body.Likes)
+    var amount = req.body.Likes + 1
+    // req.body.likedBy = req.body.likedBy  + " , " + req.user.name 
+console.log(req.body.Likes)
+    Post.findByIdAndUpdate(req.params.id, {$inc:{Likes: 1}})
+    
+    // Post.update({ _id: req.params.id }, 
+    //   { $set: req.body, $inc: { Likes: 1 } }, 
+    //   { multi: false })
     .then(() => {
       res.redirect("/posts")
     })
   }
 
   function showLikes(req, res) {
-    Post.findById(req.name._id)
-    .populate("friends")
-    .then((Likes) => {
-      res.render("/posts", {Likes: "Profile Page", likedBy})
+    Post.findById(req.params.id)
+    // .populate("friends")
+    .then((likedBy) => {
+      res.render("/posts", {Likes: 1, likedBy})
     })
   }
   

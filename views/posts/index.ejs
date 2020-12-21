@@ -11,10 +11,14 @@
         <h5 class="card-title"><%= post.name %></h5>
         <h6><%= post.createdAt.toLocaleString()%></h6>
         <img src= "<%= post.Posts %>" />
-        <%= post.Likes %> Likes 
-        
+       <div id = "friends"> <%= post.Likes %> Likes </div>
         
         <%= post.Caption %> 
+
+      <form action="/posts?_method=PUT" method="POST">
+        <button type="submit" class="btn btn-success">Like</button>
+      </form>
+
       </div>
     </div>
   <% }) %>
