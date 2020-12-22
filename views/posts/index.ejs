@@ -39,18 +39,20 @@
 
 
 
-  <% posts.forEach(post => { %>
-    <div class="card">
-      <div class="card-header">
-        <%= post.postedBy %> <img id="avatarPhoto" width="30" src="<%= post.avatar %>" alt="">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title"><%= post.name %></h5>
-        <h6><%= post.createdAt.toLocaleString()%></h6>
-        <img src= "<%= post.Posts %>" />
-       <div id = "friends"> <%= post.Likes %> Likes </div>
-   <%= post.Caption %> 
-      
+<% posts.forEach(post => { %>
+  <div class="card">
+    <div class="card-header">
+      <%= post.postedBy %> <img id="avatarPhoto" width="30" src="<%= post.avatar %>" alt="">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= post.name %></h5>
+      <h6><%= post.createdAt.toLocaleString()%></h6>
+      <img src= "<%= post.Posts %>" 
+     <div id = "friends"> <%= post.Likes %> Likes 
+      <%= post.Caption %> </div>
+
+  
+  
       <form action="posts/<%= post._id  %> ?_method=PUT" method="POST">
         <audio id="audio" src="http://www.soundjay.com/button/beep-07.wav" autoplay="false" ></audio>
         <button type="submit" class="btn btn-success" onclick="playSound();">Like</button>
