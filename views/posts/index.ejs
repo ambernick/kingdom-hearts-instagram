@@ -15,7 +15,14 @@
    <%= post.Caption %> 
       
       <form action="posts/<%= post._id  %> ?_method=PUT" method="POST">
-        <button type="submit" class="btn btn-success">Like</button>
+        <audio id="audio" src="http://www.soundjay.com/button/beep-07.wav" autoplay="false" ></audio>
+        <button type="submit" class="btn btn-success" onclick="playSound();">Like</button>
+        <script>
+          function playSound() {
+                var sound = document.getElementById("audio");
+                sound.play();
+            }
+          </script>
       </form>
       <form action="posts/<%= post._id %> ?_method=DELETE" method="POST">
         <button type="submit" class="btn btn-secondary">Delete Post</button>
