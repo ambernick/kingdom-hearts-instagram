@@ -17,6 +17,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/posts');
+const commentRoutes = require('./routes/comments')
 // const genRoutes = require('./routes/posts')
 // const profileRoutes = require('./routes/profile');
 
@@ -50,6 +51,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/auth", authRoutes);
 app.use('/posts', postRoutes);
+app.use('/comments', commentRoutes);
 // app.use('/posts/gen', genRoutes);
 
 // app.use('/profile', profileRoutes);

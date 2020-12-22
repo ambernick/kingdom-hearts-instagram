@@ -9,7 +9,6 @@ const postSchema = new Schema(
         googleId: String,
         Likes: Number,
         Caption: String,
-        Comments: String,
         Character: String,
         likedBy: [{type: Schema.Types.ObjectId, ref: "User"}],
         Posts: String,
@@ -18,6 +17,8 @@ const postSchema = new Schema(
         timestamps: true,
       }
     );
+
+   
     
     module.exports = mongoose.model("Post", postSchema);
 

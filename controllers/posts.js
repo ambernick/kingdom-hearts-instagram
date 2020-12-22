@@ -18,8 +18,10 @@ module.exports = {
       res.render("posts/index", {
         user: req.user,
         title: "Message Board",
-        posts: Posts.reverse()
-      })
+        posts: Posts.reverse(),
+       
+    
+    })
     })
   }
   

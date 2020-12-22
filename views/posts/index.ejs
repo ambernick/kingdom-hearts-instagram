@@ -12,17 +12,19 @@
         <h6><%= post.createdAt.toLocaleString()%></h6>
         <img src= "<%= post.Posts %>" />
        <div id = "friends"> <%= post.Likes %> Likes </div>
-        
-        <%= post.Caption %> 
-        
+   <%= post.Caption %> 
+      
       <form action="posts/<%= post._id  %> ?_method=PUT" method="POST">
         <button type="submit" class="btn btn-success">Like</button>
       </form>
       <form action="posts/<%= post._id %> ?_method=DELETE" method="POST">
         <button type="submit" class="btn btn-secondary">Delete Post</button>
       </form>
+
+      
       </div>
     </div>
   <% }) %>
+
   
 <%- include('../partials/footer') %>
