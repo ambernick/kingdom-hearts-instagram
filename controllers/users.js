@@ -1,13 +1,11 @@
 const User = require("../models/user");
-// const Post = require("../models/post")
+
 
 module.exports = {
   index,
   showProfile,
   update
-  // show,
-  // follow,
-  // unFollow
+  
 };
 
 function index(req, res) {

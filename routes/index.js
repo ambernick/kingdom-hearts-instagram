@@ -5,10 +5,6 @@ const usersCtrl = require("../controllers/users");
 /* GET home page. */
 router.get("/", isLoggedIn, usersCtrl.index);
 
-//  {
-//   res.render('index', { title: 'Kingdom Hearts', user: req.user ? req.user : null });
-//   isLoggedIn()
-// });
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

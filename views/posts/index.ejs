@@ -35,7 +35,6 @@
 <h1>Display Feed</h1>
 
 
-
 <% posts.forEach(post => { %>
   <div class="card">
     <div class="card-header">
@@ -60,6 +59,7 @@
                 sound.play();
             }
           </script>
+  
       </form>
       <form action="posts/<%= post._id %> ?_method=DELETE" method="POST">
         <button type="submit" class="btn btn-secondary">Delete Post</button>
