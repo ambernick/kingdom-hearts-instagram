@@ -29,10 +29,16 @@
         text-align: center;
       }
       
+     #friends{
+      text-align: center;
+     }
+
      
+  
 		</style>
 
 <h1>Display Feed</h1>
+
 
 
 <% posts.forEach(post => { %>
@@ -51,7 +57,7 @@
   
   
       <form action="posts/<%= post._id  %> ?_method=PUT" method="POST">
-        <audio id="audio" src="http://www.soundjay.com/button/beep-07.wav" autoplay="false" ></audio>
+        <audio id="audio" source src="https://www.myinstants.com/media/sounds/kh_sound_effects.mp3" preload="auto"></audio>
         <button type="submit" class="btn btn-success" onclick="playSound();">Like</button>
         <script>
           function playSound() {
@@ -62,7 +68,14 @@
   
       </form>
       <form action="posts/<%= post._id %> ?_method=DELETE" method="POST">
-        <button type="submit" class="btn btn-secondary">Delete Post</button>
+        <audio id="audioDelete" source src="sounds/menu__back-1.wav" preload="auto"></audio>
+        <button type="submit" class="btn btn-secondary" onclick="playSoundDelete();">Delete Post</button>
+        <script>
+          function playSoundDelete() {
+                var sound = document.getElementById("audioDelete");
+                sound.play();
+            }
+          </script>
       </form>
 
       
