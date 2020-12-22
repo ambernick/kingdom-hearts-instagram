@@ -2,6 +2,8 @@
 ![Imgur](https://imgur.com/IFoSFgX.png)
 ![Imgur](https://imgur.com/b4vQs1E.png)
 
+Trello Board: https://trello.com/b/Q9HopK0u/unit-2-trello-board
+
 ### How it Works
 - User should have to login with Google Auth to access the app
 - User should be able to upload posts, comment on others posts, and view their profile with all of their posts and others profiles.
