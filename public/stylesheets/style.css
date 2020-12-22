@@ -1,8 +1,24 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/133/1006/388/kingdom-hearts-wallpaper-preview.jpg");
+}
+
+h3{
+  color: white;
+  font: san seriff;
+  text-align: center;
 }
 
 a {
-  color: #00B7FF;
+  color: pink;
+}
+
+.card-body{
+  color: black;
+  font: san seriff;
+}
+
+div.navbar {
+  color: yellow;
 }

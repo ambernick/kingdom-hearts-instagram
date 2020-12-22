@@ -13,6 +13,7 @@
 			    width: 100%;
 			    padding: 0;
 			    margin: 0;
+				background-image: url("https://c4.wallpaperflare.com/wallpaper/133/1006/388/kingdom-hearts-wallpaper-preview.jpg")
 			}
 			canvas {
 				display: block;
@@ -20,6 +21,16 @@
 			}
 			#container{
 				margin: auto;
+			}
+
+			div {
+				display: block;
+				color: white;
+				font: 1em sans-serif;
+			}
+
+			h1 {
+				color: white;
 			}
 		</style>
 
@@ -32,17 +43,7 @@
 
 		<div style="display: block; margin: auto; margin-bottom: 10px; text-align: center;">
 			<div>
-				<p>Select person</p>
-				<select onchange='onPersonChange(this.value)' name = 'Character'>
-					<option value='unknown'>Unknown</option>
-					<option value='sora'>Sora</option>
-					<option value='donald'>Donald</option>
-					<option value='goofy'>Goofy</option>
-					<option value='mickey'>Mickey</option>
-					<option value='ienzo'>Ienzo</option>
-					<option value='pence'>Pence</option>
-				</select>
-			</div>
+				
 			<div>
 				<p>Enter caption</p>
 				<textarea onkeyup="onTextChange(this.value)" onblur="onTextChange(this.value)" rows="4" cols="50" name = 'Caption'>Enter caption</textarea>
