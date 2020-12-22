@@ -23,16 +23,13 @@
 				margin: auto;
 			}
 
-			div {
-				display: block;
-				color: white;
-				font: 1em sans-serif;
-			}
-
+			
 			h1 {
         color: white;
         text-align: center;
-			}
+      }
+      
+     
 		</style>
 
 <h1>Display Feed</h1>
@@ -47,9 +44,10 @@
     <div class="card-body">
       <h5 class="card-title"><%= post.name %></h5>
       <h6><%= post.createdAt.toLocaleString()%></h6>
-      <img src= "<%= post.Posts %>" 
+      <img src= "<%= post.Posts %>" >
      <div id = "friends"> <%= post.Likes %> Likes 
-      <%= post.Caption %> </div>
+      <%= post.Caption %> 
+    </div>
 
   
   
