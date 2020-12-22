@@ -1,5 +1,6 @@
 # KH-INSTAGRAM
-![KH-App] (https://imgur.com/IFoSFgX.jpg)
+![Imgur](https://imgur.com/IFoSFgX)
+
 ### How it Works
 - User should have to login with Google Auth to access the app
 - User should be able to upload posts, comment on others posts, and view their profile with all of their posts and others profiles.
