@@ -1,5 +1,6 @@
 # KH-INSTAGRAM
 ![Imgur](https://imgur.com/IFoSFgX.png)
+![Imgur](https://imgur.com/b4vQs1E.png)
 
 ### How it Works
 - User should have to login with Google Auth to access the app
