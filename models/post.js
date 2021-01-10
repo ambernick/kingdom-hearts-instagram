@@ -11,7 +11,7 @@ const postSchema = new Schema(
         Caption: String,
         Character: String,
         likedBy : String,
-           
+        postID : String,   
         Posts: String,
       },
       {

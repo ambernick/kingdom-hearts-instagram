@@ -32,6 +32,7 @@ module.exports = {
     req.body.avatar = req.user.avatar
     req.body.Likes = 0
     req.body.likedBy = ""
+    req.body.postId = req.user.id
     console.log(req.body.Posts)
     console.log(req.user._id)
     
@@ -116,9 +117,19 @@ module.exports = {
 
   function deletePost(req,res) {
     console.log(req.params.id)
-    const postID = req.params.id.toString().trim()
-    Post.findByIdAndDelete(postID, (err, Post) => {
-      res.redirect("/posts");
-  })
+    const postid = req.params.id.toString().trim()
+    Post.findById(postid).then((doc) => {
+      console.log(doc)
+      if(doc.name == req.user.name || req.user.name == 'YingYangWolf100'){
+        Post.findByIdAndDelete(postid, (err, Post) => {
+          res.redirect("/posts");
+        })}
+       
+    
+  else {
   
+return;
+
+  }
+    })
   }
