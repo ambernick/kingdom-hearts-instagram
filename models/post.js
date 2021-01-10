@@ -10,7 +10,8 @@ const postSchema = new Schema(
         Likes: Number,
         Caption: String,
         Character: String,
-        likedBy: [{type: Schema.Types.ObjectId, ref: "User"}],
+        likedBy : String,
+           
         Posts: String,
       },
       {

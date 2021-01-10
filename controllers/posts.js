@@ -1,3 +1,4 @@
+const { isValidObjectId } = require("mongoose");
 const Post = require("../models/post");
 
 
@@ -30,6 +31,7 @@ module.exports = {
     req.body.name = req.user.name
     req.body.avatar = req.user.avatar
     req.body.Likes = 0
+    req.body.likedBy = ""
     console.log(req.body.Posts)
     console.log(req.user._id)
     
@@ -56,12 +58,45 @@ module.exports = {
   // update and display likes on a post
   function update(req, res) {
     const postID = req.params.id.toString().trim()
-    Post.findByIdAndUpdate({'_id':postID}, {$inc:{Likes: 1}})
     
-  
-    .then(() => {
-      res.redirect("/posts")
-    })
+    Post.findById(postID).then((doc) => {
+      console.log(doc)
+      if(doc.likedBy.indexOf(req.user.name) == -1) {
+      
+        Post.findByIdAndUpdate({'_id':postID}, {$inc:{Likes: 1}})
+        
+      
+        .then(() => {
+          console.log('adding to likedBy');
+          Post.findByIdAndUpdate({'_id':postID}, {$set : { likedBy : doc.likedBy + req.user.name}
+        
+        })
+        
+      
+        .then(() => {
+          res.redirect("/posts")
+        })
+        })
+      } else {
+        var liked = doc.likedBy.replace(req.user.name,'')
+        Post.findByIdAndUpdate({'_id':postID}, {$inc:{Likes: -1}})
+        
+      
+      .then(() => {
+        console.log('subtract from likedBy');
+        Post.findByIdAndUpdate({'_id':postID}, {$set : { likedBy : liked}
+      
+      })
+      
+    
+      .then(() => {
+        res.redirect("/posts")
+      })
+      })}    }).catch((err)=>{
+      console.log(err);
+   })
+   
+   
   }
 
   function showLikes(req, res) {
